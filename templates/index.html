@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Video Streaming</title>
+  <link rel="stylesheet" href="../static/css/index.css" type="text/css">
+  <script type="text/javascript" src="../static/js/index.js"></script>
+</head>
+<body>
+
+  <div id="head_block">
+    <span id="left_title">
+      Multiple Pedestrian Tracking (MPT) Over Distributed Camera Network (DNS)
+    </span>
+  </div>
+
+  <!-- Select tag with start button. Design version 1
+  <p id="select_block">
+  <label for="videos">Select a video:</label>
+  <select id="videos">
+  <option value="live_webcam">live webcam</option>
+  <option value="local_video">local video</option>
+</select>
+<button type="button" name="button" onclick="select_videos()">start</button>
+</p>
+
+</div>
+
+Dropdown list testing. Design version 2
+<div class="dropdown">
+<button type="button" name="button" class="dropbtn">select a video</button>
+<div class="dropdown-content">
+<button type="button" name="button" onclick="select_videos('live_webcam')">live webcam</button>
+<button type="button" name="button" onclick="select_videos('local_video')">local video</button>
+<button type="button" name="button">button3</button>
+</div>
+</div>
+
+Dropdown menu with same width. Design version 3
+<nav>
+<ul class="top-nav">
+<li>
+<a href="#">Select a Video</a>
+<ul class="sub-nav">
+<li> <a href="#" onclick="select_videos('live_webcam')">1</a> </li>
+<li> <a href="#" onclick="select_videos('local_video')">2</a> </li>
+<li> <a href="#">3</a> </li>
+</ul>
+</li>
+</ul>
+</nav>
+-->
+
+<!-- Dropdown menu: single version. Design version 4 -->
+<div id='cssmenu'>
+  <ul>
+    <li class='has-sub'><a href='#'><span>Select a Video</span></a>
+      <ul>
+        <li class='has-sub'><a href='#' onclick="select_videos('local_inference')"><span>Local Video (inference)</span></a></li>
+
+        <li class='has-sub'><a href='#' onclick="select_videos('local_video')"><span>Local Video (live)</span></a></li>
+
+        <li class='has-sub'><a href='#' onclick="select_videos('webcam')"><span>Live Webcam</span></a></li>
+
+        <li class='has-sub'><a href='#' onclick="select_videos('video_live_golf')"><span>Live Golf Public Camera</span></a></li>
+
+        <li class='has-sub'><a href='#' onclick="multiple_videos()"><span>Multiple Videos</span></a></li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<!-- place for displaying the streamming videos -->
+<div class="row">
+  <form class="frame_counter" action="." method="post">
+    <input placeholder="Enter number of frames" type="number" id="frame_num" name="frame_num">
+    <input type="submit" value="Submit">
+  </form>
+  <div id="detect_column" class="column">
+    <p class="column-text">Detection</p>
+    <p id="detect_block">
+      <img class="detect_img" id="image" src="{{ url_for('local_video_inference') }}" alt="video-streaming" width="100%">
+    <!--
+      <img id="image2" src="{{ url_for('local_video_inference') }}" alt="video-streaming" width="100%">
+      <img id="image3" src="{{ url_for('local_video_inference') }}" alt="video-streaming" width="100%">
+      <img id="image4" src="{{ url_for('local_video_inference') }}" alt="video-streaming" width="100%">
+    -->
+    </p>
+  </div>
+
+  <div class="column">
+    <p class="column-text">Tracking</p>
+    <p id="track_block">
+      <img class="track_img" id="image1" src="{{ url_for('local_video_inference_trk') }}" alt="video-streaming" width="100%">
+    </p>
+  </div>
+</div>
+
+<div class="data-visual">
+  <!-- for data visualization -->
+</div>
+
+
+<!-- testing place for javascript -->
+<p id="testing">
+</p>
+
+</body>
+</html>
